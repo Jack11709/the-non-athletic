@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 
-export default function NotFoundPage() {
+const NotFoundPage: React.FC = () => {
   return (
     <Layout>
       <div>
@@ -11,3 +11,5 @@ export default function NotFoundPage() {
     </Layout>
   )
 }
+
+export default NotFoundPage

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import useSiteMetadata from './SiteMetadata'
+import useSiteMetadata from '../hooks/useSiteMetadata'
 
-export default function Layout({ children }) {
+const Layout: React.FC = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
     <div>
@@ -19,3 +19,5 @@ export default function Layout({ children }) {
     </div>
   )
 }
+
+export default Layout

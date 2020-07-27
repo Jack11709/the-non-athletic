@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: 'The Non Athletic',
-    description:
-      'A JAMStack site built with Gatsby and Netlify CMS',
+    description: 'A JAMStack site built with Gatsby and Netlify CMS',
   },
   plugins: [
+    'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
