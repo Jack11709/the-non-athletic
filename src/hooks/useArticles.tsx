@@ -14,6 +14,9 @@ export interface Article {
     title: string
     templateKey: string
     featuredpost: boolean
+    featuredimage: {
+      publicURL: string
+    }
     date: string
     description: string
   }
@@ -36,6 +39,9 @@ const useArticles = (): Article[] => {
                 featuredpost
                 date
                 description
+                featuredimage {
+                  publicURL
+                }
               }
               fields {
                 slug

@@ -3,7 +3,10 @@ import styled from 'styled-components'
 import { Article } from '../hooks/useArticles'
 
 const ArticleImage = styled.div`
-  background-color: grey;
+  background-image: url(${({ image }: { image: string }) => '.' + image});
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(80%);
   height: 20vh;
   display: flex;
   justify-content: center;
@@ -16,9 +19,9 @@ const ArticleImage = styled.div`
   }
 `
 
-const ArticleCard: React.FC<Article> = ({ frontmatter: { title } }) => {
+const ArticleCard: React.FC<Article> = ({ frontmatter: { title, featuredimage } }) => {
   return (
-    <ArticleImage>
+    <ArticleImage image={featuredimage.publicURL}>
       <h2>{title}</h2>
     </ArticleImage>
   )

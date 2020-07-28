@@ -5,7 +5,7 @@ import ArticleCard from './ArticleCard'
 
 const ArticleList: React.FC = () => {
   const articles = useArticles()
-
+  console.log(articles)
   return (
     <div>
       {articles.map((article) => (
