@@ -1,5 +1,14 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import styled from 'styled-components'
+
+import Navbar from './Navbar'
+
+const Main = styled.main`
+  max-width: 960px;
+  margin: 3rem auto 1rem;
+`
+
 import useSiteMetadata from '../hooks/useSiteMetadata'
 
 const Layout: React.FC = ({ children }) => {
@@ -15,7 +24,8 @@ const Layout: React.FC = ({ children }) => {
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
       </Helmet>
-      <main>{children}</main>
+      <Navbar />
+      <Main>{children}</Main>
     </div>
   )
 }
