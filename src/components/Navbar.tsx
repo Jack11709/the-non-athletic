@@ -1,23 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Header = styled.header`
-  height: 20vh;
-`
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
-  background-color: #333;
-  color: #fff;
+  border-bottom: 1px solid #f5f5f5;
 `
 
 const Navbar: React.FC = () => {
   return (
-    <Header>
+    <header>
       <Nav>
         <h1>The Non-Atheletic</h1>
       </Nav>
-    </Header>
+    </header>
   )
 }
 

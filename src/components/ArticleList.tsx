@@ -1,11 +1,18 @@
 import React from 'react'
+
 import useArticles from '../hooks/useArticles'
+import ArticleCard from './ArticleCard'
 
 const ArticleList: React.FC = () => {
   const articles = useArticles()
 
-  console.log(articles)
-  return <div>Articles List</div>
+  return (
+    <div>
+      {articles.map((article) => (
+        <ArticleCard key={article.id} {...article} />
+      ))}
+    </div>
+  )
 }
 
 export default ArticleList

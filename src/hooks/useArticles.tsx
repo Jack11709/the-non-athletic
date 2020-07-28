@@ -4,7 +4,7 @@ interface Node {
   node: Article
 }
 
-interface Article {
+export interface Article {
   fields: {
     slug: string
   }
