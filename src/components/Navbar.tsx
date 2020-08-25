@@ -4,14 +4,20 @@ import styled from 'styled-components'
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #f5f5f5;
+  background-color: ${({ theme }) => theme.black};
+  /* border-bottom: 5px solid ${({ theme }) => theme.grey}; */
+  h1 {
+    font-weight: normal;
+    font-size: 1.6rem;
+    color: ${({ theme }) => theme.fontWhite};
+  }
 `
 
 const Navbar: React.FC = () => {
   return (
     <header>
       <Nav>
-        <h1>The Non-Atheletic</h1>
+        <h1>The Non-Athletic</h1>
       </Nav>
     </header>
   )

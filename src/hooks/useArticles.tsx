@@ -13,10 +13,11 @@ export interface Article {
   frontmatter: {
     title: string
     templateKey: string
-    featuredpost: boolean
-    featuredimage: {
+    image: {
       publicURL: string
     }
+    author: string
+    sport: string
     date: string
     description: string
   }
@@ -36,10 +37,11 @@ const useArticles = (): Article[] => {
               frontmatter {
                 title
                 templateKey
-                featuredpost
                 date
                 description
-                featuredimage {
+                author
+                sport
+                image {
                   publicURL
                 }
               }
