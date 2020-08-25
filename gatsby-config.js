@@ -29,12 +29,12 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      resolve: 'gatsby-plugin-google-fonts-v2',
       options: {
         fonts: [
           {
             family: 'Raleway',
-            variants: ['400', '700'],
+            weights: ['400', '700'],
           },
         ],
       },
