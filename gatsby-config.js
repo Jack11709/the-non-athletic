@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: 'The Non Athletic',
-    description:
-      'A JAMStack site built with Gatsby and Netlify CMS',
+    title: 'The Non-Athletic',
+    description: 'A JAMStack site built with Gatsby and Netlify CMS',
   },
   plugins: [
+    'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/img`,
@@ -28,6 +28,17 @@ module.exports = {
         name: 'images',
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-fonts-v2',
+      options: {
+        fonts: [
+          {
+            family: 'Raleway',
+            weights: ['400', '700'],
+          },
+        ],
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -43,9 +54,6 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
               maxWidth: 2048,
             },
           },
@@ -64,6 +72,6 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    'gatsby-plugin-netlify', // make sure to keep it last in the array
+    'gatsby-plugin-netlify',
   ],
 }
