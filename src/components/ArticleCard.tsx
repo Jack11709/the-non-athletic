@@ -1,4 +1,5 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import { Article } from '../hooks/useArticles'
 import styled from 'styled-components'
 
@@ -21,6 +22,7 @@ const ArticleHeader = styled.div`
   p {
     font-size: 0.7rem;
     padding: 0 0.5rem;
+    font-weight: 700;
   }
   p:first-of-type {
     border-left: 2px solid ${({ theme }) => theme.black};
@@ -28,6 +30,11 @@ const ArticleHeader = styled.div`
   p:last-of-type {
     color: ${({ theme }) => theme.grey};
   }
+`
+
+const ArticleContent = styled.div`
+  display: flex;
+  flex-direction: column;
 `
 
 const ArticleImage = styled.div`
@@ -63,14 +70,16 @@ const ArticleCard: React.FC<Article> = ({ frontmatter: { title, image, sport, au
         <p>{sport}</p>
         <p>2h Ago</p>
       </ArticleHeader>
-      <ArticleImage>
-        <img src={image.publicURL} alt={title} />
-      </ArticleImage>
-      <ArticlePreview>
-        <h2>{title}</h2>
-        <p>{author}</p>
-        <p>{description}</p>
-      </ArticlePreview>
+      <ArticleContent>
+        <ArticleImage>
+          <Img alt={title} fluid={image.childImageSharp.fluid} />
+        </ArticleImage>
+        <ArticlePreview>
+          <h2>{title}</h2>
+          <p>{author}</p>
+          <p>{description}</p>
+        </ArticlePreview>
+      </ArticleContent>
     </ArticleContainer>
   )
 }

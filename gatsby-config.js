@@ -36,6 +36,9 @@ module.exports = {
             family: 'Raleway',
             weights: ['400', '700'],
           },
+          {
+            family: 'Anton',
+          },
         ],
       },
     },
