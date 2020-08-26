@@ -5,10 +5,10 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   background-color: ${({ theme }) => theme.black};
-  /* border-bottom: 5px solid ${({ theme }) => theme.grey}; */
   h1 {
     font-weight: normal;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    font-family: 'Anton', sans-serif;
     color: ${({ theme }) => theme.fontWhite};
   }
 `

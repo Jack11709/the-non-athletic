@@ -14,7 +14,15 @@ export interface Article {
     title: string
     templateKey: string
     image: {
-      publicURL: string
+      childImageSharp: {
+        fluid: {
+          aspectRatio: number
+          base64: string
+          sizes: string
+          src: string
+          srcSet: string
+        }
+      }
     }
     author: string
     sport: string
@@ -42,7 +50,11 @@ const useArticles = (): Article[] => {
                 author
                 sport
                 image {
-                  publicURL
+                  childImageSharp {
+                    fluid(maxWidth: 960) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
                 }
               }
               fields {
@@ -55,7 +67,7 @@ const useArticles = (): Article[] => {
     `
   )
 
-  return data.map((i: Node) => i.node)
+  return data.map((i: Node) => i.node).reverse()
 }
 
 export default useArticles

@@ -7,7 +7,7 @@ const ArticleList: React.FC = () => {
   const articles = useArticles()
   return (
     <div>
-      {articles.reverse().map((article) => (
+      {articles.map((article) => (
         <ArticleCard key={article.id} {...article} />
       ))}
     </div>
