@@ -37,7 +37,7 @@ const useArticles = (): Article[] => {
   } = useStaticQuery(
     graphql`
       query GET_ALL_ARTICLES {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
           edges {
             node {
               id
@@ -45,7 +45,7 @@ const useArticles = (): Article[] => {
               frontmatter {
                 title
                 templateKey
-                date
+                date(fromNow: true)
                 description
                 author
                 sport
@@ -67,7 +67,7 @@ const useArticles = (): Article[] => {
     `
   )
 
-  return data.map((i: Node) => i.node).reverse()
+  return data.map((i: Node) => i.node)
 }
 
 export default useArticles

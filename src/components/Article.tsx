@@ -13,9 +13,6 @@ interface PageProps {
 
 const ArticleContainer = styled.div`
   padding: 0 1.5rem;
-  h1 {
-    line-height: 2rem;
-  }
   div,
   h3 {
     line-height: 1.5rem;
@@ -23,6 +20,11 @@ const ArticleContainer = styled.div`
   .sub {
     color: ${({ theme }) => theme.fontGrey};
     font-size: 0.9rem;
+  }
+  @media (min-width: 550px) {
+    h1 {
+      font-size: 2.5em;
+    }
   }
 `
 
@@ -42,13 +44,16 @@ const ArticlePage: React.FC<PageProps> = ({
     <Layout isArticle>
       <ArticleContainer>
         <h1>{frontmatter.title}</h1>
-        <p className="sub">{new Date(frontmatter.date).toLocaleString('en-GB')}</p>
+        <p className="sub">{frontmatter.date}</p>
         <p className="sub">{frontmatter.author}</p>
         <ImageContainer>
           <Img alt={frontmatter.title} fluid={frontmatter.image.childImageSharp.fluid} />
         </ImageContainer>
+        <p className="sub">Share this Story:</p>
+        <Share />
         <h3>{frontmatter.description}</h3>
         <div dangerouslySetInnerHTML={{ __html: html }} />
+        <p className="sub">Share this Story:</p>
         <Share />
       </ArticleContainer>
     </Layout>

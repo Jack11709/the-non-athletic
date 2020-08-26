@@ -17,7 +17,7 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               title
               templateKey
-              date
+              date(formatString: "L LTS", locale: "en-GB")
               description
               author
               sport
