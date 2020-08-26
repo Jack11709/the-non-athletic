@@ -3,16 +3,17 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 interface Props {
-  home: string | undefined
+  isArticle: boolean | undefined
 }
 
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
   background-color: ${({ theme }) => theme.black};
-  position: ${({ home }: Props) => (home ? 'fixed' : 'static ')};
+  position: ${({ isArticle }: Props) => (isArticle ? 'static' : 'fixed')};
   width: 100%;
   z-index: 1;
+  padding: 0.2rem;
   h1 {
     font-weight: normal;
     font-size: 1.5rem;
@@ -21,10 +22,10 @@ const Nav = styled.nav`
   }
 `
 
-const Navbar: React.FC<Props> = ({ home }) => {
+const Navbar: React.FC<Props> = ({ isArticle }) => {
   return (
     <header>
-      <Nav home={home}>
+      <Nav isArticle={isArticle}>
         <Link to="/">
           <h1>The Non-Athletic</h1>
         </Link>

@@ -4,15 +4,17 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { normalize } from 'styled-normalize'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import Navbar from './Navbar'
+import Footer from './Footer'
 
 interface PageProps {
-  location?: string
+  isArticle?: boolean
 }
 
 const theme = {
   black: '#000',
   fontWhite: '#f5f5f5',
   grey: '#ccc',
+  fontGrey: '#696969',
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -27,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Main = styled.main`
-  max-width: 960px;
+  max-width: 840px;
   margin: 0 auto;
   @media (min-width: 550px) {
     padding: 0 2rem;
@@ -37,7 +39,7 @@ const Main = styled.main`
   }
 `
 
-const Layout: React.FC<PageProps> = ({ children, location }) => {
+const Layout: React.FC<PageProps> = ({ children, isArticle }) => {
   const { title, description } = useSiteMetadata()
   return (
     <>
@@ -52,8 +54,9 @@ const Layout: React.FC<PageProps> = ({ children, location }) => {
       </Helmet>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Navbar home={location} />
+        <Navbar isArticle={isArticle} />
         <Main>{children}</Main>
+        <Footer />
       </ThemeProvider>
     </>
   )
