@@ -17,12 +17,19 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Raleway', sans-serif;
   }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `
 
 const Main = styled.main`
   max-width: 960px;
   margin: 0 auto;
   @media (min-width: 550px) {
+    padding: 2rem;
+  }
+  @media (min-width: 960px) {
     padding: 1rem;
   }
 `

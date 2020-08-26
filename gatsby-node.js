@@ -15,8 +15,25 @@ exports.createPages = ({ actions, graphql }) => {
               slug
             }
             frontmatter {
+              title
               templateKey
+              date
+              description
+              author
+              sport
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 960) {
+                    src
+                    srcSet
+                    sizes
+                    base64
+                    originalImg
+                  }
+                }
+              }
             }
+            html
           }
         }
       }
@@ -34,9 +51,10 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
-        component: path.resolve(`src/templates/${String(edge.node.frontmatter.templateKey)}.tsx`),
+        component: path.resolve(`src/components/${String(edge.node.frontmatter.templateKey)}.tsx`),
         context: {
           id,
+          content: edge.node,
         },
       })
     })
