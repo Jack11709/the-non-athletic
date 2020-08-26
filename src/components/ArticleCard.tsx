@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Article } from '../hooks/useArticles'
 import styled from 'styled-components'
+import { func } from 'prop-types'
 
 const ArticleContainer = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ const ArticleHeader = styled.div`
     border-left: 2px solid ${({ theme }) => theme.black};
   }
   p:last-of-type {
-    color: ${({ theme }) => theme.grey};
+    color: ${({ theme }) => theme.fontGrey};
   }
 `
 
@@ -47,12 +48,14 @@ const ArticleImage = styled.div`
 
 const ArticlePreview = styled.div`
   padding: 1rem;
+  line-height: 1.5rem;
   h2 {
+    line-height: 2rem;
     font-size: 1.3rem;
     margin: 0;
   }
   p:first-of-type {
-    color: ${({ theme }) => theme.grey};
+    color: ${({ theme }) => theme.fontGrey};
     font-size: 0.8rem;
   }
   p:last-of-type {

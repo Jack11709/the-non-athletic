@@ -4,7 +4,7 @@ import useArticles from '../hooks/useArticles'
 import ArticleCard from './ArticleCard'
 
 const ArticleListContainer = styled.div`
-  padding-top: 5rem;
+  padding-top: 5.5rem;
 `
 
 const ArticleList: React.FC = () => {

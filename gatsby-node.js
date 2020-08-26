@@ -28,7 +28,7 @@ exports.createPages = ({ actions, graphql }) => {
                     srcSet
                     sizes
                     base64
-                    originalImg
+                    aspectRatio
                   }
                 }
               }
