@@ -2,9 +2,12 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { normalize } from 'styled-normalize'
-
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import Navbar from './Navbar'
+
+interface PageProps {
+  location?: string
+}
 
 const theme = {
   black: '#000',
@@ -27,14 +30,14 @@ const Main = styled.main`
   max-width: 960px;
   margin: 0 auto;
   @media (min-width: 550px) {
-    padding: 2rem;
+    padding: 0 2rem;
   }
   @media (min-width: 960px) {
-    padding: 1rem;
+    padding: 0 1rem;
   }
 `
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<PageProps> = ({ children, location }) => {
   const { title, description } = useSiteMetadata()
   return (
     <>
@@ -49,7 +52,7 @@ const Layout: React.FC = ({ children }) => {
       </Helmet>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Navbar />
+        <Navbar home={location} />
         <Main>{children}</Main>
       </ThemeProvider>
     </>
