@@ -68,7 +68,7 @@ const ArticlePreview = styled.div`
 `
 
 const ArticleCard: React.FC<Article> = ({
-  frontmatter: { title, image, sport, author, description },
+  frontmatter: { title, image, sport, author, description, date },
   fields: { slug },
 }) => {
   return (
@@ -76,7 +76,7 @@ const ArticleCard: React.FC<Article> = ({
       <ArticleContainer>
         <ArticleHeader>
           <p>{sport}</p>
-          <p>2h Ago</p>
+          <p>{date}</p>
         </ArticleHeader>
         <ArticleContent>
           <ArticleImage>
