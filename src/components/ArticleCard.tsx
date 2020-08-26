@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Article } from '../hooks/useArticles'
 import styled from 'styled-components'
@@ -63,24 +64,29 @@ const ArticlePreview = styled.div`
   }
 `
 
-const ArticleCard: React.FC<Article> = ({ frontmatter: { title, image, sport, author, description } }) => {
+const ArticleCard: React.FC<Article> = ({
+  frontmatter: { title, image, sport, author, description },
+  fields: { slug },
+}) => {
   return (
-    <ArticleContainer>
-      <ArticleHeader>
-        <p>{sport}</p>
-        <p>2h Ago</p>
-      </ArticleHeader>
-      <ArticleContent>
-        <ArticleImage>
-          <Img alt={title} fluid={image.childImageSharp.fluid} />
-        </ArticleImage>
-        <ArticlePreview>
-          <h2>{title}</h2>
-          <p>{author}</p>
-          <p>{description}</p>
-        </ArticlePreview>
-      </ArticleContent>
-    </ArticleContainer>
+    <Link to={slug}>
+      <ArticleContainer>
+        <ArticleHeader>
+          <p>{sport}</p>
+          <p>2h Ago</p>
+        </ArticleHeader>
+        <ArticleContent>
+          <ArticleImage>
+            <Img alt={title} fluid={image.childImageSharp.fluid} />
+          </ArticleImage>
+          <ArticlePreview>
+            <h2>{title}</h2>
+            <p>{author}</p>
+            <p>{description}</p>
+          </ArticlePreview>
+        </ArticleContent>
+      </ArticleContainer>
+    </Link>
   )
 }
 
