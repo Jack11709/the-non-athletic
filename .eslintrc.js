@@ -21,6 +21,7 @@ module.exports = {
     ],
     '@typescript-eslint/no-unused-vars': ['off'],
     '@typescript-eslint/no-var-requires': ['off'],
+    'no-console': [1],
     indent: ['error', 2, { SwitchCase: 1 }],
     'prettier/prettier': [
       'error',
@@ -32,4 +33,5 @@ module.exports = {
       },
     ],
   },
+  root: true,
 }
