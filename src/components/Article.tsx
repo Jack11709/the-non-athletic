@@ -43,7 +43,7 @@ const ArticlePage: React.FC<PageProps> = ({
   return (
     <Layout isArticle>
       <ArticleContainer>
-        <h1>{frontmatter.title}</h1>
+        <h1 data-testid="article-header">{frontmatter.title}</h1>
         <p className="sub">{frontmatter.date}</p>
         <p className="sub">{frontmatter.author}</p>
         <ImageContainer>

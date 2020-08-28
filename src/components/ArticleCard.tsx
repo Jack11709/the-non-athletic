@@ -72,7 +72,7 @@ const ArticleCard: React.FC<Article> = ({
   fields: { slug },
 }) => {
   return (
-    <Link to={slug}>
+    <Link to={slug} data-testid="article-card">
       <ArticleContainer>
         <ArticleHeader>
           <p>{sport}</p>

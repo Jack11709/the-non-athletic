@@ -26,7 +26,7 @@ const Navbar: React.FC<Props> = ({ isArticle }) => {
   return (
     <header>
       <Nav isArticle={isArticle}>
-        <Link to="/">
+        <Link to="/" data-testid="homepage">
           <h1>The Non-Athletic</h1>
         </Link>
       </Nav>
