@@ -2,11 +2,21 @@ module.exports = {
   siteMetadata: {
     title: 'The Non-Athletic',
     description: 'A JAMStack site built with Gatsby and Netlify CMS',
+    url: 'https://the-non-athletic.netlify.app/',
   },
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-use-dark-mode',
+      options: {
+        classNameDark: 'dark-mode',
+        classNameLight: 'light-mode',
+        storageKey: 'darkMode',
+        minify: true,
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

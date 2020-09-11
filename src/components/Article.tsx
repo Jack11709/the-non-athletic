@@ -12,6 +12,7 @@ interface PageProps {
 }
 
 const ArticleContainer = styled.div`
+  color: ${({ theme }) => theme.fontMain};
   padding: 0 1.5rem;
   div,
   h3 {
@@ -26,6 +27,9 @@ const ArticleContainer = styled.div`
       font-size: 2.5em;
     }
   }
+  hr {
+    margin-top: 5rem;
+  }
 `
 
 const ImageContainer = styled.div`
@@ -37,24 +41,29 @@ const ImageContainer = styled.div`
 
 const ArticlePage: React.FC<PageProps> = ({
   pageContext: {
-    content: { frontmatter, html },
+    content: {
+      frontmatter,
+      html,
+      fields: { slug },
+    },
   },
 }) => {
   return (
     <Layout isArticle>
       <ArticleContainer>
-        <h1>{frontmatter.title}</h1>
+        <h1 data-testid="article-header">{frontmatter.title}</h1>
         <p className="sub">{frontmatter.date}</p>
         <p className="sub">{frontmatter.author}</p>
         <ImageContainer>
           <Img alt={frontmatter.title} fluid={frontmatter.image.childImageSharp.fluid} />
         </ImageContainer>
         <p className="sub">Share this Story:</p>
-        <Share />
+        <Share title={frontmatter.title} slug={slug} />
         <h3>{frontmatter.description}</h3>
         <div dangerouslySetInnerHTML={{ __html: html }} />
+        <hr />
         <p className="sub">Share this Story:</p>
-        <Share />
+        <Share title={frontmatter.title} slug={slug} />
       </ArticleContainer>
     </Layout>
   )
