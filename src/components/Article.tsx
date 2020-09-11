@@ -41,7 +41,11 @@ const ImageContainer = styled.div`
 
 const ArticlePage: React.FC<PageProps> = ({
   pageContext: {
-    content: { frontmatter, html },
+    content: {
+      frontmatter,
+      html,
+      fields: { slug },
+    },
   },
 }) => {
   return (
@@ -54,12 +58,12 @@ const ArticlePage: React.FC<PageProps> = ({
           <Img alt={frontmatter.title} fluid={frontmatter.image.childImageSharp.fluid} />
         </ImageContainer>
         <p className="sub">Share this Story:</p>
-        <Share title={frontmatter.title} />
+        <Share title={frontmatter.title} slug={slug} />
         <h3>{frontmatter.description}</h3>
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <hr />
         <p className="sub">Share this Story:</p>
-        <Share title={frontmatter.title} />
+        <Share title={frontmatter.title} slug={slug} />
       </ArticleContainer>
     </Layout>
   )

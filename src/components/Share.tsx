@@ -10,9 +10,11 @@ import {
   RedditShareButton,
   RedditIcon,
 } from 'react-share'
+import useSiteMetadata from '../hooks/useSiteMetadata'
 
 interface ShareProps {
   title: string
+  slug: string
 }
 
 const ShareContainer = styled.div`
@@ -26,8 +28,9 @@ const commonProps = {
   size: 40,
 }
 
-const Share: React.FC<ShareProps> = ({ title }) => {
-  const currentUrl = window?.location?.href
+const Share: React.FC<ShareProps> = ({ title, slug }) => {
+  const { url } = useSiteMetadata()
+  const currentUrl = url + slug.replace('/', '')
   return (
     <ShareContainer>
       <FacebookShareButton quote={title} hashtag="non-athletic" url={currentUrl}>

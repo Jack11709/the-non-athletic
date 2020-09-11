@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'The Non-Athletic',
     description: 'A JAMStack site built with Gatsby and Netlify CMS',
+    url: 'https://the-non-athletic.netlify.app/',
   },
   plugins: [
     'gatsby-plugin-typescript',
