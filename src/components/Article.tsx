@@ -12,6 +12,7 @@ interface PageProps {
 }
 
 const ArticleContainer = styled.div`
+  color: ${({ theme }) => theme.fontMain};
   padding: 0 1.5rem;
   div,
   h3 {

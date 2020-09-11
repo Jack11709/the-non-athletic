@@ -3,15 +3,18 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Article } from '../hooks/useArticles'
 import styled from 'styled-components'
-import { func } from 'prop-types'
 
 const ArticleContainer = styled.div`
+  color: ${({ theme }) => theme.fontMain};
   display: flex;
   flex-direction: column;
   border-bottom: solid 1px ${({ theme }) => theme.grey};
+  border-bottom: ${({ theme }) => (theme.isDark ? `solid 1px ${theme.grey}` : 'none')};
+  background-color: ${({ theme }) => (theme.isDark ? 'inherit' : theme.black)};
   @media (min-width: 550px) {
-    border: solid 1px ${({ theme }) => theme.grey};
-    box-shadow: 0 1px 0 0 ${({ theme }) => theme.grey};
+    border: ${({ theme }) => (theme.isDark ? `solid 1px ${theme.grey}` : 'none')};
+    /* box-shadow: 0 1px 0 0 ${({ theme }) => theme.grey}; */
+    box-shadow: ${({ theme }) => (theme.isDark ? `0 1px 0 0 ${theme.grey}` : 'none')};
     border-radius: 4px;
     margin-bottom: 1rem;
   }
@@ -27,7 +30,7 @@ const ArticleHeader = styled.div`
     font-weight: 700;
   }
   p:first-of-type {
-    border-left: 2px solid ${({ theme }) => theme.black};
+    border-left: 2px solid ${({ theme }) => (theme.isDark ? theme.black : theme.fontWhite)};
   }
   p:last-of-type {
     color: ${({ theme }) => theme.fontGrey};
