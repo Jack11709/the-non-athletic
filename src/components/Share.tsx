@@ -1,38 +1,47 @@
 import React from 'react'
 import styled from 'styled-components'
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  RedditShareButton,
+  RedditIcon,
+} from 'react-share'
 
-const facebook = require('../img/social/facebook.svg')
-const instagram = require('../img/social/instagram.svg')
-const twitter = require('../img/social/twitter.svg')
+interface ShareProps {
+  title: string
+}
 
 const ShareContainer = styled.div`
   display: flex;
-  width: 150px;
+  width: 200px;
   justify-content: space-between;
   margin: 1rem 0 2rem;
 `
-const ShareButton = styled.a`
-  display: block;
-  height: 1.5rem;
-  width: 1.5rem;
-  img {
-    width: 100%;
-    height: auto;
-  }
-`
+const commonProps = {
+  round: true,
+  size: 40,
+}
 
-const Share: React.FC = () => {
+const Share: React.FC<ShareProps> = ({ title }) => {
+  const currentUrl = window?.location?.href
   return (
     <ShareContainer>
-      <ShareButton>
-        <img src={facebook} alt="Facebook" />
-      </ShareButton>
-      <ShareButton>
-        <img src={twitter} alt="Twitter" />
-      </ShareButton>
-      <ShareButton>
-        <img src={instagram} alt="Instagram" />
-      </ShareButton>
+      <FacebookShareButton quote={title} hashtag="non-athletic" url={currentUrl}>
+        <FacebookIcon {...commonProps} />
+      </FacebookShareButton>
+      <TwitterShareButton url={currentUrl} title={title} via="the-non-athletic" hashtags={['the-non-atheletic']}>
+        <TwitterIcon {...commonProps} />
+      </TwitterShareButton>
+      <WhatsappShareButton url={currentUrl} title={title}>
+        <WhatsappIcon {...commonProps} />
+      </WhatsappShareButton>
+      <RedditShareButton url={currentUrl} title={title}>
+        <RedditIcon {...commonProps} />
+      </RedditShareButton>
     </ShareContainer>
   )
 }

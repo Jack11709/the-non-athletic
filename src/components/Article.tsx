@@ -27,6 +27,9 @@ const ArticleContainer = styled.div`
       font-size: 2.5em;
     }
   }
+  hr {
+    margin-top: 5rem;
+  }
 `
 
 const ImageContainer = styled.div`
@@ -51,11 +54,12 @@ const ArticlePage: React.FC<PageProps> = ({
           <Img alt={frontmatter.title} fluid={frontmatter.image.childImageSharp.fluid} />
         </ImageContainer>
         <p className="sub">Share this Story:</p>
-        <Share />
+        <Share title={frontmatter.title} />
         <h3>{frontmatter.description}</h3>
         <div dangerouslySetInnerHTML={{ __html: html }} />
+        <hr />
         <p className="sub">Share this Story:</p>
-        <Share />
+        <Share title={frontmatter.title} />
       </ArticleContainer>
     </Layout>
   )
